@@ -48,9 +48,28 @@ public class Candy135 {
 
         return minCandies;
     }
+
+    public static int candy2(int[] ratings){
+        int[] ans = new int[ratings.length];
+        Arrays.fill(ans, 1);
+
+        for(int i = 1; i < ratings.length; i++){
+            if(ratings[i] > ratings[i - 1]){
+                ans[i] = ans[i - 1] + 1;
+            }
+        }
+
+        for(int i = ratings.length - 2; i >= 0; i--){
+            if(ratings[i] > ratings[i + 1] && ans[i] <= ans[i + 1]){
+                ans[i] = ans[i + 1] + 1;
+            }
+        }
+
+        return Arrays.stream(ans).sum();
+    }
     public static void main(String[] args) {
         int[] ratings = {1,6,10,8,7,3,2};
 
-        System.out.println(candy(ratings));
+        System.out.println(candy2(ratings));
     }
 }
