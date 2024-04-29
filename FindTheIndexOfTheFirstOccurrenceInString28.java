@@ -15,3 +15,5 @@ public class FindTheIndexOfTheFirstOccurrenceInString28 {
         System.out.println(strStr(haystack, needle));
     }
 }
+
+// Try KPM string matching algo
